@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COLOR</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #mother{
+      font-family: 'Sofia Sans', sans-serif;
+      text-align: center;
+    }
+    #mother #dd{
+      font-family: 'Sofia Sans', sans-serif;
+      width: 499px;
+      height: 90px;
+      box-shadow: 1px 1px 5px black;
+      border-radius: 40px;
+    }
+    #container{
+      font-family: 'Sofia Sans', sans-serif;
+      text-align: center;
+      width: 90%;
+      margin: auto;
+    }
+    table{
+      font-family: 'Sofia Sans', sans-serif;
+      width: 100%;
+      font-size: 33px;
+    }
+    h3{
+      font-family: 'Sofia Sans', sans-serif;
+      font-weight: bold;
+      font-size: 23px;
+    }
+    p{
+      font-family: 'Sofia Sans', sans-serif;
+      font-weight: bold;
+      
+    }
+    h2{
+      font-family: 'Sofia Sans', sans-serif;
+      margin-top: 30px;
+      font-size: 46px;
+      color: rgb(12, 95, 204);
+    }
+    input[type="range"]{
+      font-family: 'Sofia Sans', sans-serif;
+      width: 300px;
+      height: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="mother">
+    <center>
+      <img src="color.webp" width="399px">
+      <br><br>
+      <div id="dd"></div>
+    </center>
+  </div>
+  <br><br>
+    <div id="container">
+      <table>
+        <tr>
+          <th> <img src="color1.png"> </th>
+          <th> <img src="color2.png"> </th>
+          <th> <img src="color3.png"> </th>
+        </tr>
+        <tr>
+          <td><input type="range" min="0" max="255" value="255" id="r" onchange="changeRange();"></td>
+          <td><input type="range" min="0" max="255" value="255" id="g" onchange="changeRange();"></td>
+          <td><input type="range" min="0" max="255" value="255" id="b" onchange="changeRange();"></td>
+        </tr>
+        <tr>
+          <td id="r-label">255</td>
+          <td id="g-label">255</td>
+          <td id="b-label">255</td>
+        </tr>
+      </table>
+      <h2 id="hex-label">#ffffff</h2>
+      <br><br><br>
+      <h3>DELBRIN</h3>
+          <hr>
+      <p>FREECODE</p>
+      <p>HTML CSS and JAVASCRIPT </p>
+      
+      
+    </div>
+    <script>
+      function changeRange(){
+        var r = parseInt(document.getElementById('r').value);
+        var g = parseInt(document.getElementById('g').value);
+        var b = parseInt(document.getElementById('b').value);
+        var color = '#' + hex(r) + hex(g) + hex(b);
+        window.dd.style.backgroundColor = color;
+        document.getElementById('hex-label').innerText = color;
+        document.getElementById('r-label').innerText = r;
+        document.getElementById('g-label').innerText = g;
+        document.getElementById('b-label').innerText = b;
+        if (r < 0 && g < 0 && b < 0){
+          document.getElementById('container').style.color = 'white';
+        }else{
+          document.getElementById('container').style.color = 'black';
+        }
+      }
+      function hex(v){
+        var hex = v.toString(16);
+        if (v < 16 ){
+          hex = "0" + hex;
+        }
+        return hex;
+      }
+    </script>
+</body>
+</html>
